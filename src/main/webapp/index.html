@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>MVC Distilled</title>
 		<script>
+			// The Model
 			function Counter() {
 				this.value = 0;
 				this.observers = [];
@@ -23,17 +24,29 @@
 				}
 			}
 			
-			var counter = new Counter();
-			counter.addObserver(function(cnt) {
-				document.getElementById('view00').innerHTML = 'Counter value is <strong>' + cnt.value + '</strong>';;
-			});
+			const counter = new Counter();
 			
-			counter.addObserver(function(cnt) {
+			// The View(s)
+			function counterValueView(cnt) {
+				document.getElementById('view00').innerHTML = 'Counter value is <strong>' + cnt.value + '</strong>';
+			}
+			
+			counter.addObserver(counterValueView);
+			
+			function counterRemainder2View(cnt) {
 				document.getElementById('view01').innerHTML = 'Counter value % 2 is <strong>' + (cnt.value % 2) + '</strong>';;
-			});
+			}
 			
+			counter.addObserver(counterRemainder2View);
+			
+			function counterRemainder3View(cnt) {
+				document.getElementById('view02').innerHTML = 'Counter value % 3 is <strong>' + (cnt.value % 3) + '</strong>';;
+			}
+			
+			counter.addObserver(counterRemainder3View);
+			
+			// The Controller
 			function handleClick() {
-				console.log('Clicked');
 				counter.increment();
 			}
 			
@@ -46,6 +59,7 @@
 		<h1>MVC Distilled</h1>
 		<div id="view00"></div>
 		<div id="view01"></div>
-		<div id="view02"><button onclick="handleClick()">+</button></div>
+		<div id="view02"></div>
+		<div><button onclick="handleClick()">+</button></div>
 	</body>
 </html>
