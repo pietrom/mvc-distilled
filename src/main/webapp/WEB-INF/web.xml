@@ -9,7 +9,7 @@
 
     <servlet>
         <servlet-name>CounterServlet</servlet-name>
-        <servlet-class>it.unibs.ing.se.mvcdistilled.CounterServlet</servlet-class>
+        <servlet-class>it.unibs.ing.se.mvcdistilled.web.CounterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

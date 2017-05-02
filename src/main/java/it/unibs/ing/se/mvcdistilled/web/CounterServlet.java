@@ -1,4 +1,4 @@
-package it.unibs.ing.se.mvcdistilled;
+package it.unibs.ing.se.mvcdistilled.web;
 
 import java.io.IOException;
 
